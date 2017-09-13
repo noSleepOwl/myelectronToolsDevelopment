@@ -9,32 +9,18 @@ const path = require('path');
 const clipboard = require('electron').clipboard;
 
 
-const pasteBtn = document.getElementById('paste-to')
-
-pasteBtn.addEventListener('click', function () {
-  clipboard.writeText('What a demo!')
-  const message = `Clipboard contents: ${clipboard.readText()}`
-  document.getElementById('paste-from').innerHTML = message
-})
-
-const TYPE  = ['FORMATTIME']
-
-function getClipBoard (type){
-    switch(type){
-        case TYPE[0]:
-            break;
-        case '':
-            break;
-        default:
-            break;
-    }
+function getClipBoard(type, message,self,arg) {
+    let rea = require('./messageControl.js');
+    rea[type].apply(this, [message,self].concat(arg));
 }
 
 $(function () {
-    $('[data-toggle="getClipBoard"]').click(function(){
+    $('[data-toggle="getClipBoard"]').click(function () {
         let self = $(this),
             data = self.data(),
-            type = data['type']
-            getClipBoard(type)
+            type = data['type'],
+            arg = data['arg'].split(','),
+            message = clipboard.readText();
+        getClipBoard(type, message,self,arg)
     })
 })

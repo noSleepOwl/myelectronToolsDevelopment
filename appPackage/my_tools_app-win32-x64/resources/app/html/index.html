@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/index.css" rel="stylesheet">
+  <!-- <title>Hello World!</title> -->
+</head>
+
+<body>
+  <div class="app-content">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-sm-3">
+          <div class="input-group input-group-sm">
+            <div class="input-group-btn">
+              <button class="btn  btn-info " data-toggle="getClipBoard" data-arg="#showText" data-type="split">拆分</button>
+            </div>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn-sm btn-info " data-toggle="getClipBoard" data-arg="#showText" data-type="getClipBoard">提取剪切板内容</button>
+
+        </div>
+        <div class="col-sm-12" style="margin-top:1%;">
+          <!-- <textarea id="showText" rows="3" class="form-control" style="resize: none;" readonly="readonly">
+         </textarea> -->
+          <div id="showText" class="well well-sm">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script>
+  require('../js/renderer.js')
+
+</script>
+
+</html>
