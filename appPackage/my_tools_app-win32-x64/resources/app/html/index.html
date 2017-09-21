@@ -21,16 +21,27 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <button class="btn btn-sm btn-info " data-toggle="getClipBoard" data-arg="#showText" data-type="getClipBoard">提取剪切板内容</button>
-
         </div>
-        <div class="col-sm-12" style="margin-top:1%;">
-          <!-- <textarea id="showText" rows="3" class="form-control" style="resize: none;" readonly="readonly">
-         </textarea> -->
-          <div id="showText" class="well well-sm">
-
+        <div class="col-sm-3">
+          <div class="btn-group" role="group">
+            <button class="btn btn-sm btn-info w-xs" data-toggle="getClipBoard" data-arg="#showText" data-type="getClipBoard">提取剪切板内容</button>
+            <button class="btn w-xs btn-default btn-sm" data-toggle="getClipBoard" data-arg="#showText" data-type="clear">清空</button>
+            <button class="btn btn-sm btn-info  w-sm" data-toggle="getClipBoard" data-arg="#hostoryList,message" data-type="saveMessage">保存</button>
           </div>
         </div>
+        <div class="col-sm-8" style="margin-top:1%;">
+          <textarea id="showText" rows="20" class="form-control" style="resize: none;" readonly="readonly">
+          </textarea>
+          <!-- <div id="showText" class="well well-sm">
+            
+          </div> -->
+        </div>
+        <div  class="col-sm-4" style="margin-top:1%;">
+          <ul id="hostoryList" class="list-group">
+            <li class="list-group-item no-hostory" >无历史记录</li>
+          </ul>
+        </div>
+
       </div>
     </div>
 

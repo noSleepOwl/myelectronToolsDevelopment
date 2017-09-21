@@ -20,13 +20,11 @@
             <input type="text" class="form-control">
           </div>
         </div>
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <div class="btn-group" role="group">
             <button class="btn btn-sm btn-info w-xs" data-toggle="getClipBoard" data-arg="#showText" data-type="getClipBoard">提取剪切板内容</button>
             <button class="btn w-xs btn-default btn-sm" data-toggle="getClipBoard" data-arg="#showText" data-type="clear">清空</button>
-            <button class="btn btn-sm btn-info  w-sm" data-toggle="getClipBoard" data-arg="#showText" data-type="clear">保存</button>
+            <button class="btn btn-sm btn-info  w-sm" data-toggle="getClipBoard" data-arg="#hostoryList,message" data-type="saveMessage">保存</button>
           </div>
         </div>
         <div class="col-sm-8" style="margin-top:1%;">
@@ -37,12 +35,8 @@
           </div> -->
         </div>
         <div class="col-sm-4" style="margin-top:1%;">
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+          <ul id="hostoryList" class="list-group">
+            <li class="list-group-item no-hostory">无历史记录</li>
           </ul>
         </div>
 

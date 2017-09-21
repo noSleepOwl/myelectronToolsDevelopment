@@ -1,15 +1,15 @@
-const {app, BrowserWindow} = require('electron')
+
+const {app, BrowserWindow,Menu} = require('electron')
 const path = require('path')
 const url = require('url')
 
 // 保持一个对于 window 对象的全局引用，如果你不这样做，
 // 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
 let win
-//创建菜单
-function createMume(){
 
-}
 function createWindow () {
+  let template = require('./js/musem')
+  
   let option = {width: 900, height: 600,title:'工具'};
   // 创建浏览器窗口。
   win = new BrowserWindow(option)

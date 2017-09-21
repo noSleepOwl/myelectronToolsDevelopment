@@ -1,6 +1,5 @@
 
 const $ = require('jquery')
-
 // 获取剪贴板内容
 exports.getClipBoard = function getClipBoard(message, self, select) {
     select = $(select);
@@ -20,6 +19,7 @@ exports.clear = function(message, self,selects){
         $(this).text('')
     });
 }
-exports.message = function message(){
-    
+exports.saveMessage = function message(message, self,selects,messageClass){
+    messageClass.saveData(message);
 }
+
