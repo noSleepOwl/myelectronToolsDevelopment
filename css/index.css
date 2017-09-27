@@ -1,0 +1,8 @@
+.app-content {
+	margin-top: 54px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.table-hover>tbody>tr>td.active:hover{
+	    background-color: #52FFF6;
+}

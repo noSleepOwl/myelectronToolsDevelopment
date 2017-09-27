@@ -1,16 +1,17 @@
 
-const {app, BrowserWindow,Menu} = require('electron')
-const path = require('path')
-const url = require('url')
+const { app, BrowserWindow } = require('electron')
+const path = require('path');
+const url = require('url');
+const glob = require('glob');
 
 // 保持一个对于 window 对象的全局引用，如果你不这样做，
 // 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
 let win
 
-function createWindow () {
-  let template = require('./js/musem')
-  
-  let option = {width: 900, height: 600,title:'工具'};
+function createWindow() {
+  loadDemos();
+
+  let option = { width: 900, height: 600, title: '工具' , minWidth: 900,minHeight:600};
   // 创建浏览器窗口。
   win = new BrowserWindow(option)
 
@@ -51,6 +52,13 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+function loadDemos() {
+  var files = glob.sync(path.join(__dirname, 'js/main-process/**/*.js'))
+  files.forEach(function (file) {
+    require(file)
+  })
+}
 
 // 在这文件，你可以续写应用剩下主进程代码。
 // 也可以拆分成几个文件，然后用 require 导入。

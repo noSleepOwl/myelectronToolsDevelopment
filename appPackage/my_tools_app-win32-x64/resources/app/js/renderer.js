@@ -3,34 +3,34 @@
 // All of the Node.js APIs are available in this process.
 
 window.$ = window.jQuery = require('jquery');
-let res = require('bootstrap');
-const BrowserWindow = require('electron').remote.BrowserWindow;
-const path = require('path');
-const clipboard = require('electron').clipboard;
-const messageClass = require('./messageSave').message;
+const res = require('bootstrap');
 
-function getClipBoard(type, message,self,arg) {
-    let rea = require('./messageControl.js');
-    //参数转换
-    $.each(arg,function(key,value){
-        switch(value){
-            case 'message':
-                arg[key] = messageClass;
-                break;
-            default :
-                break;
-        }
-    })
-    rea[type].apply(this, [message,self].concat(arg));
-}
+const collspace = require('./htmlFunc/ExcelCollspace');
+
+const path = require('path');
+const fileDiolg = require('./file');
+const ReadExcels = require('./ReadExcels');
+const ParseData = require('./ParseData');
+
+const uuidv = require('uuid/v1');
+
+
+
 
 $(function () {
-    $('[data-toggle="getClipBoard"]').click(function () {
-        let self = $(this),
-            data = self.data(),
-            type = data['type'],
-            arg = data['arg'].split(','),
-            message = clipboard.readText();
-        getClipBoard(type, message,self,arg)
+    fileDiolg('#testDiolg', function (ele, path, event) {
+        $('#accordion').empty();
+        //读取文件 
+        let datas = ReadExcels(path[0]);
+        let tables = ParseData(datas);
+        tables.each(function (index) {
+            let self = $(this);
+            let title = self.find('tr:eq(1)').text(),
+                target = uuidv(),
+                parentSelector = '#accordion';
+            var coll = collspace(title, target, parentSelector);
+            $(parentSelector).append(coll.getCollspace());
+            coll.append(self);
+        })
     })
 })
